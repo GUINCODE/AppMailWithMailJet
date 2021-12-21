@@ -16,7 +16,7 @@ app.UseHttpsRedirection();
 
 app.MapGet("/envoi-mail", async (EmailHostedService hostedService) =>
 {
-     string[] contacts = { "barrybagata96@gmail.com", "barryfreres224@gmail.com", "aguibou.barry@pointbase.fr"};
+     string[] contacts = { "virginie.hugnet@pointbase.fr", "sebastien.allouche@pointbase.fr", "barrybagata96@gmail.com", "barryfreres224@gmail.com", "aguibou.barry@pointbase.fr"};
 
     for (int i = 0; i < contacts.Length; i++)
     {
