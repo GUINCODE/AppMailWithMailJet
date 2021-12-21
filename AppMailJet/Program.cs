@@ -16,20 +16,28 @@ app.UseHttpsRedirection();
 
 app.MapGet("/envoi-mail", async (EmailHostedService hostedService) =>
 {
-    await hostedService.SendEmailAsync(new EmailModel
+     string[] contacts = { "barrybagata96@gmail.com", "barryfreres224@gmail.com", "aguibou.barry@pointbase.fr"};
+
+    for (int i = 0; i < contacts.Length; i++)
     {
-       
 
-        //EmailAdresse = "virginie.hugnet@pointbase.fr",
+        await hostedService.SendEmailAsync(new EmailModel
+        {
 
-        EmailAdresse = "aguibou.barry@pointbase.fr",
-        Subject = "Mailing Test N°021 ",
-        Body = "<strong> MAILJET SERVICE + DOTNET 6 </strong>" +
-        " <p> Bonjour, ceci est un test d'envoi de mail" +
-        " <br/> <b>Merci de ne pas repondre à ce message, il à été généré automatiquement !!!</b> </p>",
-        Attachements = null
 
-    });
+            //EmailAdresse = "virginie.hugnet@pointbase.fr",
+
+            EmailAdresse = contacts[i],
+            Subject = "Mailing Test N°021 ",
+            Body = "<strong> MAILJET SERVICE + DOTNET 6 </strong>" +
+          " <p> Bonjour , ceci est un test d'envoi de mail" +
+      " <br/> <b>Merci de ne pas repondre à ce message, il à été généré automatiquement !!!</b> </p>",
+            Attachements = null
+
+        });
+    }
+
+  
 }).WithName("PointBase");
 
 
